@@ -16,25 +16,25 @@ unsigned long long int fileSize_int;
 // Creates buffer and writes file contents to buffer. It takes in a File path
 // and writes to mainBuffer_ptr and fileSize_int.
 void loadFileToBuffer(char filePath[]) {
-  FILE *tempFile;
-  tempFile = fopen(filePath, "r");
-  fseek(tempFile, 0L, SEEK_END);
-  fileSize_int = ftell(tempFile);
-  mainBuffer_ptr = malloc(sizeof(char) * fileSize_int + BUFFER_HEADROOM);
-  fseek(tempFile, 0L, SEEK_SET);
-  fread(mainBuffer_ptr, sizeof(char), fileSize_int, tempFile);
-  fclose(tempFile);
+	FILE *tempFile;
+	tempFile = fopen(filePath, "r");
+	fseek(tempFile, 0L, SEEK_END);
+	fileSize_int = ftell(tempFile);
+	mainBuffer_ptr = malloc(sizeof(char) * fileSize_int + BUFFER_HEADROOM);
+	fseek(tempFile, 0L, SEEK_SET);
+	fread(mainBuffer_ptr, sizeof(char), fileSize_int, tempFile);
+	fclose(tempFile);
 }
 
 void printBuffer() {
-  for (int i = 0; i < fileSize_int; ++i) {
-    printf("%c", mainBuffer_ptr[i]);
-  }
+	for (int i = 0; i < fileSize_int; ++i) {
+		printf("%c", mainBuffer_ptr[i]);
+	}
 }
 
 int main() {
-  loadFileToBuffer("megaHardNotepad.c");
-  printBuffer();
-  free(mainBuffer_ptr);
-  return 0;
+	loadFileToBuffer("megaHardNotepad.c");
+	printBuffer();
+	free(mainBuffer_ptr);
+	return 0;
 }
