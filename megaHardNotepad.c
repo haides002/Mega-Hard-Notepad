@@ -1,4 +1,4 @@
-//		Mega Hard Word
+//		Mega Hard Notepad
 //		version 0.0-alpha
 //		by Zxmon and Haides002
 
