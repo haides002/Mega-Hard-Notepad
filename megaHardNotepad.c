@@ -10,7 +10,7 @@
 char *mainBuffer_ptr;
 unsigned long long int fileSize_int;
 
-void mapFile() { // creates buffer and writes file contents to buffer
+void loadFileToBuffer() { // creates buffer and writes file contents to buffer
   FILE *pFile;
   pFile = fopen("example.txt", "r");
   fseek(pFile, 0L, SEEK_END);
@@ -29,7 +29,7 @@ void printBuffer() {
 }
 
 int main() {
-  mapFile();
+  loadFileToBuffer();
   printBuffer();
   free(mainBuffer_ptr);
   return 0;
